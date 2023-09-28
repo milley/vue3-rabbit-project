@@ -1,18 +1,18 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import HomePanel from './HomePanel.vue'
-import { getGoodsAPI } from '@/apis/home'
+import { ref, onMounted } from "vue";
+import HomePanel from "./HomePanel.vue";
+import { getGoodsAPI } from "@/apis/home";
+import GoodsItem from "./GoodsItem.vue";
 
-const goodsProduct = ref([])
+const goodsProduct = ref([]);
 const getGoods = async () => {
-    const res = await getGoodsAPI()
-    goodsProduct.value = res.result
-}
+  const res = await getGoodsAPI();
+  goodsProduct.value = res.result;
+};
 
 onMounted(() => {
-    getGoods()
-})
-
+  getGoods();
+});
 </script>
 
 <template>
@@ -28,12 +28,7 @@ onMounted(() => {
         </RouterLink>
         <ul class="goods-list">
           <li v-for="good in cate.goods" :key="good.id">
-            <RouterLink to="/" class="goods-item">
-              <img v-img-lazy="good.picture" alt="" />
-              <p class="name ellipsis">{{ good.name }}</p>
-              <p class="desc ellipsis">{{ good.desc }}</p>
-              <p class="price">&yen;{{ good.price }}</p>
-            </RouterLink>
+            <GoodsItem :goods="goods" />
           </li>
         </ul>
       </div>
@@ -41,7 +36,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 .home-product {
   background: #fff;
   margin-top: 20px;
@@ -107,33 +102,12 @@ onMounted(() => {
       }
     }
 
-    .goods-list {
-      width: 990px;
-      display: flex;
-      flex-wrap: wrap;
-
-      li {
-        width: 240px;
-        height: 300px;
-        margin-right: 10px;
-        margin-bottom: 10px;
-
-        &:nth-last-child(-n + 4) {
-          margin-bottom: 0;
-        }
-
-        &:nth-child(4n) {
-          margin-right: 0;
-        }
-      }
-    }
-
     .goods-item {
       display: block;
       width: 220px;
       padding: 20px 30px;
       text-align: center;
-      transition: all .5s;
+      transition: all 0.5s;
 
       &:hover {
         transform: translate3d(0, -3px, 0);
