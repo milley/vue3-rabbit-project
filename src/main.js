@@ -7,6 +7,7 @@ import router from "./router";
 import "@/styles/common.scss";
 
 import { useIntersectionObserver } from "@vueuse/core";
+import { componentPlugin } from "@/components";
 
 // 测试接口函数
 // import { getCategory } from '@/apis/testAPI'
@@ -18,6 +19,7 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
+app.use(componentPlugin);
 
 app.mount("#app");
 
