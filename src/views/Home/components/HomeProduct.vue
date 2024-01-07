@@ -102,39 +102,24 @@ onMounted(() => {
       }
     }
 
-    .goods-item {
-      display: block;
-      width: 220px;
-      padding: 20px 30px;
-      text-align: center;
-      transition: all 0.5s;
+    .goods-list {
+      width: 990px;
+      display: flex;
+      flex-wrap: wrap;
 
-      &:hover {
-        transform: translate3d(0, -3px, 0);
-        box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
-      }
+      li {
+        width: 240px;
+        height: 300px;
+        margin-right: 10px;
+        margin-bottom: 10px;
 
-      img {
-        width: 160px;
-        height: 160px;
-      }
+        &:nth-last-child(-n + 4) {
+          margin-bottom: 0;
+        }
 
-      p {
-        padding-top: 10px;
-      }
-
-      .name {
-        font-size: 16px;
-      }
-
-      .desc {
-        color: #999;
-        height: 29px;
-      }
-
-      .price {
-        color: $priceColor;
-        font-size: 20px;
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
       }
     }
   }
