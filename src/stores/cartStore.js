@@ -72,6 +72,7 @@ export const useCartStore = defineStore(
       addCart,
       delCart,
       clearCart,
+      updateNewList,
       singleCheck,
       allCheck,
       allCount,
